@@ -40,7 +40,7 @@ export default function Patients() {
         </p>
 
         {/* Actions Bar */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
@@ -60,7 +60,7 @@ export default function Patients() {
         </div>
 
         {/* Table */}
-        <div className="bg-card rounded-xl shadow-card overflow-hidden">
+        <div className="bg-card rounded-xl shadow-card overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr className="text-muted-foreground text-xs">

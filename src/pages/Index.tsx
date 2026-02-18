@@ -85,13 +85,13 @@ function StatusBadge({ status }: { status: string }) {
 export default function Index() {
   return (
     <DashboardLayout title="Dashboard">
-      <div className="flex gap-6 animate-fade-in">
+      <div className="flex flex-col xl:flex-row gap-6 animate-fade-in">
         {/* Main Content */}
-        <div className="flex-1 space-y-5">
+        <div className="flex-1 min-w-0 space-y-5">
           {/* Today's Overview */}
           <div>
             <h2 className="text-base font-semibold text-foreground mb-3">Today's Overview</h2>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {stats.map((s) => (
                 <div key={s.label} className={cn("rounded-xl p-4 flex flex-col gap-3", s.bg)}>
                   <s.icon className={cn("w-6 h-6", s.iconColor)} />
@@ -104,9 +104,9 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* Critical Alerts */}
-            <div className="bg-card rounded-xl shadow-card p-4">
+            <div className="bg-card rounded-xl shadow-card p-4 overflow-x-auto">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-foreground">Critical Alerts</h3>
                 <button className="text-muted-foreground hover:text-foreground"><MoreHorizontal className="w-4 h-4" /></button>
@@ -136,7 +136,7 @@ export default function Index() {
             </div>
 
             {/* Pending Lab Results */}
-            <div className="bg-card rounded-xl shadow-card p-4">
+            <div className="bg-card rounded-xl shadow-card p-4 overflow-x-auto">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-foreground">Pending Lab Results</h3>
                 <button className="text-muted-foreground hover:text-foreground"><MoreHorizontal className="w-4 h-4" /></button>
@@ -164,7 +164,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* Today's Appointments */}
             <div className="bg-card rounded-xl shadow-card p-4">
               <div className="flex items-center justify-between mb-4">
@@ -238,9 +238,9 @@ export default function Index() {
         </div>
 
         {/* Today's Patients Sidebar */}
-        <div className="w-64 shrink-0">
+        <div className="xl:w-64 xl:shrink-0">
           <h2 className="text-base font-semibold text-foreground mb-3">Today's Patients</h2>
-          <div className="space-y-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-1 gap-2">
             {todaysPatients.map((p, i) => (
               <Link key={i} to={`/patients/${i + 1}`} className="block bg-card rounded-xl shadow-card p-3 hover:shadow-card-hover transition-shadow">
                 <div className="flex items-center gap-2 mb-2">
