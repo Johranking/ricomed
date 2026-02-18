@@ -25,9 +25,9 @@ export default function Messages() {
 
   return (
     <DashboardLayout title="Messages">
-      <div className="animate-fade-in bg-card rounded-xl shadow-card overflow-hidden flex h-[calc(100vh-160px)]">
+      <div className="animate-fade-in bg-card rounded-xl shadow-card overflow-hidden flex flex-col sm:flex-row h-[calc(100vh-160px)]">
         {/* Sidebar */}
-        <div className="w-72 border-r border-border flex flex-col">
+        <div className="w-full sm:w-72 border-b sm:border-b-0 sm:border-r border-border flex flex-col max-h-52 sm:max-h-full overflow-auto sm:overflow-hidden">
           <div className="p-4 border-b border-border">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />

@@ -34,7 +34,7 @@ export default function Appointments() {
     <DashboardLayout title="Appointments">
       <div className="animate-fade-in space-y-5">
         {/* Summary Cards */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { label: "Total Today", value: 8, color: "bg-primary/10 text-primary" },
             { label: "In Consultation", value: 1, color: "bg-[hsl(145,60%,94%)] text-[hsl(145,60%,38%)]" },
@@ -49,8 +49,8 @@ export default function Appointments() {
         </div>
 
         {/* Table */}
-        <div className="bg-card rounded-xl shadow-card overflow-hidden">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-border">
+        <div className="bg-card rounded-xl shadow-card overflow-x-auto">
+          <div className="flex flex-wrap items-center justify-between gap-2 px-5 py-4 border-b border-border">
             <h3 className="font-semibold text-foreground">Today's Appointments</h3>
             <div className="flex gap-2">
               <button className="flex items-center gap-2 px-3 py-1.5 border border-border rounded-lg text-sm text-foreground hover:bg-muted transition-colors">
