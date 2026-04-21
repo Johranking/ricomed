@@ -14,7 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      workout_logs: {
+        Row: {
+          calories: number | null
+          created_at: string
+          duration_min: number | null
+          id: string
+          log_date: string
+          notes: string | null
+          status: Database["public"]["Enums"]["workout_status"]
+          updated_at: string
+          user_id: string
+          workout_type: string | null
+        }
+        Insert: {
+          calories?: number | null
+          created_at?: string
+          duration_min?: number | null
+          id?: string
+          log_date: string
+          notes?: string | null
+          status: Database["public"]["Enums"]["workout_status"]
+          updated_at?: string
+          user_id: string
+          workout_type?: string | null
+        }
+        Update: {
+          calories?: number | null
+          created_at?: string
+          duration_min?: number | null
+          id?: string
+          log_date?: string
+          notes?: string | null
+          status?: Database["public"]["Enums"]["workout_status"]
+          updated_at?: string
+          user_id?: string
+          workout_type?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +85,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      workout_status: "completed" | "missed" | "rest"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +212,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      workout_status: ["completed", "missed", "rest"],
+    },
   },
 } as const
