@@ -1,103 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 220 20% 96%;
-    --foreground: 220 25% 12%;
+    /* Iron Kinetic — dark/red brutal aesthetic */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 210 85% 48%;
+    --primary: 0 84% 52%;
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 90% 60%;
 
-    --secondary: 185 60% 45%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 220 15% 93%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 185 55% 90%;
-    --accent-foreground: 185 60% 30%;
+    --accent: 0 84% 52%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 75% 55%;
+    --destructive: 0 84% 52%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 210 85% 48%;
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
 
-    --radius: 0.75rem;
+    --border: 0 0% 18%;
+    --input: 0 0% 14%;
+    --ring: 0 84% 52%;
 
-    /* Medical-specific tokens */
-    --sidebar-bg: 0 0% 100%;
-    --sidebar-active-bg: 185 55% 92%;
-    --sidebar-active-text: 185 60% 32%;
-    --sidebar-text: 220 15% 45%;
-    --sidebar-icon: 220 10% 55%;
+    --radius: 0.25rem;
 
-    --stat-appointments: 210 85% 96%;
-    --stat-appointments-icon: 210 85% 48%;
-    --stat-waiting: 35 90% 95%;
-    --stat-waiting-icon: 35 85% 55%;
-    --stat-critical: 0 75% 95%;
-    --stat-critical-icon: 0 75% 55%;
-    --stat-labs: 185 55% 95%;
-    --stat-labs-icon: 185 60% 40%;
-
-    --severity-critical: 0 75% 55%;
-    --severity-moderate: 35 85% 55%;
-    --severity-mild: 210 85% 48%;
-    --severity-info: 220 10% 60%;
-
-    --status-active: 145 60% 42%;
-    --status-resolved: 220 10% 60%;
-    --status-waiting: 35 85% 55%;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 15% 45%;
-    --sidebar-primary: 210 85% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 185 55% 92%;
-    --sidebar-accent-foreground: 185 60% 32%;
-    --sidebar-border: 220 15% 90%;
-    --sidebar-ring: 210 85% 48%;
+    --gradient-red: linear-gradient(135deg, hsl(0 84% 52%), hsl(0 90% 38%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 4%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 5% / 0) 0%, hsl(0 0% 5% / 0.6) 60%, hsl(0 0% 5%) 100%);
+    --shadow-red: 0 10px 40px -10px hsl(0 84% 52% / 0.5);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
   }
 
   .dark {
-    --background: 222 25% 9%;
-    --foreground: 210 20% 95%;
-    --card: 222 25% 12%;
-    --card-foreground: 210 20% 95%;
-    --popover: 222 25% 12%;
-    --popover-foreground: 210 20% 95%;
-    --primary: 210 85% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 185 60% 42%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 222 20% 18%;
-    --muted-foreground: 215 15% 55%;
-    --accent: 222 20% 18%;
-    --accent-foreground: 210 20% 95%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 222 20% 20%;
-    --input: 222 20% 20%;
-    --ring: 210 85% 55%;
+    /* same as root — app is dark by default */
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-display {
+    font-family: 'Bebas Neue', 'Oswald', Impact, sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .font-condensed {
+    font-family: 'Oswald', 'Bebas Neue', Impact, sans-serif;
   }
 }
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px hsl(var(--foreground));
+    color: transparent;
+  }
+  .text-stroke-red {
+    -webkit-text-stroke: 1px hsl(var(--primary));
+    color: transparent;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7); }
+  50% { box-shadow: 0 0 0 12px hsl(var(--primary) / 0); }
+}
+.pulse-red { animation: pulse-red 2s infinite; }
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up { animation: slide-up 0.4s ease-out; }
